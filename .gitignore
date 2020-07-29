@@ -11,7 +11,7 @@ buildNumber.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 
-./idea
+.idea/
 
 # Package Files #
 *.jar
@@ -19,3 +19,5 @@ buildNumber.properties
 *.ear
 
 *.iml
+
+jpa-day01/
