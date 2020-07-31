@@ -1,3 +1,9 @@
+
+
+中文文档
+
+https://www.springcloud.cc/
+
 ## 创建
 
 1. 建module
@@ -6,9 +12,11 @@
 4. 主启动
 5. 业务类
 
-## Eureka
+## 注册中心
 
-### 创建（包括多机）
+### Eureka
+
+#### 创建（包括多机）
 
 pom
 
@@ -111,7 +119,7 @@ public class EurekaMain7001 {
 
 
 
-### 将消费者和生产者加入eureka
+#### 将消费者和生产者加入eureka
 
 
 
@@ -163,7 +171,7 @@ public class PaymentMain8001 {
 
 
 
-### 多生产者运行
+#### 多生产者运行
 
 1. 消费者访问接口
 
@@ -186,11 +194,7 @@ public class PaymentMain8001 {
 
 
 
-### 访问地址
-
-
-
-
+访问地址
 
 ```java
 @GetMapping(value = "/payment/discovery")
@@ -207,7 +211,6 @@ public Object  discovery(){
 }
 ```
 
-
 启动类加入`EnableDiscoveryClient`
 
 ```java
@@ -221,3 +224,42 @@ public class PaymentMain8002 {
 }
 ```
 
+
+
+#### 自我保护机制
+
+> 当端口不见的时候，不会了立刻删除
+
+关闭自我保护
+
+eureka.yaml
+
+```yaml
+server:
+  port: 7002
+
+eureka:
+  instance:
+    hostname: eureka7002.com
+  client:
+    register-with-eureka: false     #false表示不向注册中心注册自己。
+  fetch-registry: false     #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+  service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+    server:
+      #关闭自我保护机制，保证不可用服务被及时踢除
+      enable-self-preservation: false
+      eviction-interval-timer-in-ms: 2000
+```
+
+### zookeeper
+
+
+
+### consul
+
+[consul](https://www.consul.io/)
+
+
+
+### 三个注册中心的异同点
