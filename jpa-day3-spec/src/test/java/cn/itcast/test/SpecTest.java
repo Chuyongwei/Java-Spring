@@ -50,7 +50,7 @@ public class SpecTest {
             @Override
             public Predicate toPredicate(Root<Customer> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                 //1.获取比较的属性
-                Path<Object> custName = root.get("custId");
+                Path<Object> custName = root.get("custName");
                 //2.构造查询条件  ：    select * from cst_customer where cust_name = '传智播客'
                 /**
                  * 第一个参数：需要比较的属性（path对象）

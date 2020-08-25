@@ -7,6 +7,18 @@
     <groupId>cn.itcast</groupId>
     <artifactId>jpa-day3-spec</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <properties>
         <spring.version>5.0.2.RELEASE</spring.version>
@@ -14,7 +26,8 @@
         <slf4j.version>1.6.6</slf4j.version>
         <log4j.version>1.2.12</log4j.version>
         <c3p0.version>0.9.1.2</c3p0.version>
-        <mysql.version>5.1.6</mysql.version>
+<!--        <mysql.version>5.1.6</mysql.version>-->
+        <mysql.version>8.0.20</mysql.version>
     </properties>
 
     <dependencies>
