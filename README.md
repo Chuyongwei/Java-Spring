@@ -39,3 +39,21 @@
 `-- tree.txt
 ```
 
+## 使用
+
+### 针对mysql8的修改
+
+1. 导入doucment中的account.sql
+
+    1. 创建数据库eesy
+    
+    2. 将mysql-connect版本改成8.0.20
+    
+2. 修改资源中的bean包的数据库
+    
+    + `com.sql.jdbc.Driver`改成`com.mysql.cj.jdbc.Driver`
+    
+    + `url`要添加`?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone = GMT`  或者`?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone = GMT`
+    
+    + `password`修改密码
+    
